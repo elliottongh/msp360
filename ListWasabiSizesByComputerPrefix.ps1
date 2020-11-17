@@ -1,5 +1,4 @@
 # Needs AWS CLI configured, could also be used for any S3 compatible service, I'd imagine
-# it will work with any S3-compatible service
 
 $bucket = "yourbucket"
 $endpoint = "https://s3.wasabisys.com"
