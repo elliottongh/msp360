@@ -7,4 +7,4 @@ $prefixes = @{}
 $computers = @{}
 $prefixes = $(aws s3api list-objects-v2 --bucket $bucket --delimiter "/" --endpoint-url $endpoint | ConvertFrom-Json).CommonPrefixes.Prefix
 $computers = $($prefixes | ForEach { $(aws s3api list-objects-v2 --bucket $bucket --prefix $_ --delimiter "/" --endpoint-url $endpoint | ConvertFrom-Json).CommonPrefixes.Prefix })
-$computers | ForEach { "$_,"+$($(aws s3 ls --summarize --human-readable --recursive "s3://$bucket/$_" --endpoint-url $endpoint) | Select-String -pattern "Total Size: (.+)").Matches.Groups[1].Value }
+$computers | ForEach { "$_,"+$($(aws s3 ls --summarize --recursive "s3://$bucket/$_" --endpoint-url $endpoint) | Select-String -pattern "Total Size: (.+)").Matches.Groups[1].Value }
