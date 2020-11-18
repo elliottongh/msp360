@@ -1,4 +1,5 @@
 # Needs AWS CLI configured, could also be used for any S3 compatible service, I'd imagine
+# ...OH HEY! There's a PowerShell AWS Tools...guess I'll need to rewrite this...later
 
 $bucket = "yourbucket"
 $endpoint = "https://s3.wasabisys.com"
